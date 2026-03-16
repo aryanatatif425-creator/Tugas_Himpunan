@@ -1,0 +1,26 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  compatibilityDate: "2025-07-15",
+  devtools: { enabled: true },
+
+  app: {
+    baseURL: "/",
+    head: {
+      title: "Himakom Pokedex",
+      link: [{ rel: "icon", type: "image/png", href: "/assets/img/pokemon.png" }],
+    },
+  },
+
+  nitro: {
+    preset: "static",
+  },
+
+  modules: [
+    "@nuxt/image",
+    "@pinia/nuxt",
+    "@nuxtjs/tailwindcss",
+    "@primevue/nuxt-module",
+  ],
+
+  css: ["./app/assets/css/main.css"],
+});
