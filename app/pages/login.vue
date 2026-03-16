@@ -1,37 +1,3 @@
-<script setup lang="ts">
-const auth = useAuthStore()
-const email = ref('')
-const password = ref('')
-const error = ref('')
-const loading = ref(false)
-const successAnimation = ref(false)
-const showAlert = ref(false)
-
-const handleLogin = async () => {
-  error.value = ''
-  showAlert.value = false
-  loading.value = true
-
-  await new Promise(resolve => setTimeout(resolve, 1000))
-
-  const success = auth.login(email.value, password.value)
-
-  loading.value = false
-
-  if (success) {
-    successAnimation.value = true
-
-    setTimeout(() => {
-    }, 1000)
-  } else {
-    error.value = 'Email atau password salah'
-    showAlert.value = true
-
-    setTimeout(() => (showAlert.value = false), 2000)
-  }
-}
-</script>
-
 <template>
   <div class="relative min-h-screen overflow-hidden grid grid-cols-1 md:grid-cols-2 bg-[var(--fifth-color)]">
     <!-- Left side -->
@@ -85,3 +51,37 @@ const handleLogin = async () => {
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const auth = useAuthStore()
+const email = ref('')
+const password = ref('')
+const error = ref('')
+const loading = ref(false)
+const successAnimation = ref(false)
+const showAlert = ref(false)
+
+const handleLogin = async () => {
+  error.value = ''
+  showAlert.value = false
+  loading.value = true
+
+  await new Promise(resolve => setTimeout(resolve, 1000))
+
+  const success = auth.login(email.value, password.value)
+
+  loading.value = false
+
+  if (success) {
+    successAnimation.value = true
+
+    setTimeout(() => {
+    }, 1000)
+  } else {
+    error.value = 'Email atau password salah'
+    showAlert.value = true
+
+    setTimeout(() => (showAlert.value = false), 2000)
+  }
+}
+</script>

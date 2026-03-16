@@ -1,17 +1,16 @@
 <template>
-  <div ref="scrollContainer" data-scroll-container>
+  <div ref="scrollContainer">
     <section class="relative min-h-screen w-full">
       <div class="flex flex-col py-40 px-20 select-none transition-all duration-1000 ease-out" :class="loaded
         ? 'translate-y-0 opacity-100'
         : '-translate-y-40 opacity-0'">
-        <h1 class="uppercase text-[100px] text-[var(--primary-color)]" data-scroll data-scroll-speed="1">welcome</h1>
-        <h1 class="uppercase text-[150px] text-[var(--primary-color)] -mt-20 font-bold" data-scroll
-          data-scroll-speed="1">pokemon</h1>
+        <h1 class="uppercase text-[100px] text-[var(--primary-color)]">welcome</h1>
+        <h1 class="uppercase text-[150px] text-[var(--primary-color)] -mt-20 font-bold">pokemon</h1>
       </div>
-      <NuxtImg src="/assets/img/pokemon.png"
+      <img src="/assets/img/pokemon.png"
         class="w-80 h-auto absolute right-20 bottom-24 transition-all duration-1000 ease-out" :class="loaded
           ? 'translate-y-0 opacity-100'
-          : 'translate-y-40 opacity-0'" data-scroll data-scroll-speed="2" />
+          : 'translate-y-40 opacity-0'">
     </section>
 
     <section class="min-h-screen py-40 px-20">
@@ -19,7 +18,7 @@
       <div class="flex items-center justify-around mt-20">
         <div class="w-[300px] h-[300px] flex items-center justify-center transition-opacity duration-500"
           :class="{ 'opacity-0': fading }">
-          <NuxtImg v-if="currentPokemon" :src="currentPokemon.image" class="w-full h-full object-contain" />
+          <img v-if="currentPokemon" :src="currentPokemon.image" class="w-full h-full object-contain">
         </div>
         <div>
           <div
@@ -66,9 +65,6 @@ definePageMeta({
   layout: 'main'
 })
 
-const scrollContainer = ref(null)
-const { $locomotive } = useNuxtApp()
-
 const loaded = ref(false)
 
 const pokemonStore = usePokemonStore()
@@ -106,13 +102,6 @@ const prevPokemon = () => {
 }
 
 onMounted(async () => {
-  if (scrollContainer.value) {
-    new $locomotive({
-      el: scrollContainer.value,
-      smooth: true
-    })
-  }
-
   setTimeout(() => {
     loaded.value = true
   }, 100);

@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import MainFooter from '~/components/layout/MainFooter.vue';
-import MainNavbar from '~/components/layout/MainNavbar.vue';
-
-</script>
-
 <template>
   <div class="min-h-screen bg-[var(--fifth-color)]">
     <MainNavbar />
@@ -13,3 +7,9 @@ import MainNavbar from '~/components/layout/MainNavbar.vue';
     <MainFooter />
   </div>
 </template>
+
+<script setup lang="ts">
+import MainFooter from '~/components/layout/MainFooter.vue';
+import MainNavbar from '~/components/layout/MainNavbar.vue';
+
+</script>
