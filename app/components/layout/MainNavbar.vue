@@ -1,18 +1,31 @@
 <template>
   <div
-    class="w-full h-full flex justify-between px-20 py-5 items-center bg-[var(--fifth-color)] transition-all duration-1000 ease-out"
+    class="fixed top-6 inset-x-6 z-50 flex justify-between px-12 py-4 items-center bg-white rounded-full shadow-2xl border border-gray-100 transition-all duration-1000 ease-out"
     :class="loaded ? 'translate-y-0 opacity-100' : '-translate-y-40 opacity-0'">
-    <h1 class="text-xl font-bold">Pokedex</h1>
-    <ul class="flex gap-8 text-xl">
-      <li>
-        <NuxtLink to="/" :class="isActive('/') ? 'text-orange-500 font-bold' : 'text-gray-800'">
+    <NuxtLink to="/">
+      <img src="/assets/img/fontbolt.png" alt="Website Logo" class="h-10 w-auto" />
+    </NuxtLink>
+    <ul class="flex gap-8 text-lg font-normal uppercase tracking-widest" style="font-family: 'Lato', sans-serif;">
+      <li class="relative group">
+        <NuxtLink to="/" :class="isActive('/') ? 'text-[#27F5B7] font-extrabold' : 'text-[#115C45] font-bold'" class="transition-all duration-300">
           Home
         </NuxtLink>
+        <!-- Loading Bar Effect -->
+        <div class="absolute -bottom-1 left-0 h-1 bg-[#27F5B7] rounded-full transition-all duration-[1500ms] ease-in-out group-hover:w-full" :class="isActive('/') ? 'w-full' : 'w-0'"></div>
       </li>
-      <li>
-        <NuxtLink to="/pokemon" :class="isActive('/pokemon') ? 'text-orange-500 font-bold' : 'text-gray-800'">
+      <li class="relative group">
+        <NuxtLink to="/pokemon" :class="isActive('/pokemon') ? 'text-[#27F5B7] font-extrabold' : 'text-[#115C45] font-bold'" class="transition-all duration-300">
           Pokemon
         </NuxtLink>
+        <!-- Loading Bar Effect -->
+        <div class="absolute -bottom-1 left-0 h-1 bg-[#27F5B7] rounded-full transition-all duration-[1500ms] ease-in-out group-hover:w-full" :class="isActive('/pokemon') ? 'w-full' : 'w-0'"></div>
+      </li>
+      <li class="relative group">
+        <NuxtLink to="/about" :class="isActive('/about') ? 'text-[#27F5B7] font-extrabold' : 'text-[#115C45] font-bold'" class="transition-all duration-300">
+          About
+        </NuxtLink>
+        <!-- Loading Bar Effect -->
+        <div class="absolute -bottom-1 left-0 h-1 bg-[#27F5B7] rounded-full transition-all duration-[1500ms] ease-in-out group-hover:w-full" :class="isActive('/about') ? 'w-full' : 'w-0'"></div>
       </li>
     </ul>
   </div>

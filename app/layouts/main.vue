@@ -1,7 +1,8 @@
 <template>
-  <div class="min-h-screen bg-[var(--fifth-color)]">
+  <div class="min-h-screen relative">
+    <CosmicBackground />
     <MainNavbar />
-    <main class="bg-[var(--fifth-color)]">
+    <main class="relative z-10">
       <slot />
     </main>
     <MainFooter />
@@ -11,5 +12,6 @@
 <script setup lang="ts">
 import MainFooter from '~/components/layout/MainFooter.vue';
 import MainNavbar from '~/components/layout/MainNavbar.vue';
+import CosmicBackground from '~/components/layout/CosmicBackground.vue';
 
 </script>
